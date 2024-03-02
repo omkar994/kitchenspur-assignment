@@ -1,6 +1,7 @@
 Before starting Node.js, MongoDB, Git Bash should be install on local.
+Follow the below steps.
 
-1-Launch Git Bash
+1-Launch Git Bash.
 
 2-git clone https://github.com/omkar994/kitchenspur-assignment.git
 
@@ -16,7 +17,7 @@ Before starting Node.js, MongoDB, Git Bash should be install on local.
 
 8-Now keep this console open as server is running in this console.
 
-9-Launch Git Bash in main project folder i.e. one level up to backend folder
+9-Launch Git Bash in main project folder i.e. one level up to backend folder.
 
 10-npm start
 
