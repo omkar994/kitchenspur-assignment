@@ -16,7 +16,7 @@ const createTransaction = async(req, res)=>{
         
     } catch (error) {
         console.log(error)
-        return res.status(500).json(baseResponse(500, "Internal Server Error", { error }));        
+        return res.status(500).json(baseresponse(500, "Internal Server Error", { error }));        
     }
 }
 

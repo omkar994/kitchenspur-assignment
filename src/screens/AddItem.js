@@ -4,9 +4,28 @@ import Navbar from '../components/Navbar.js';
 export default function AddItem() {
 
   const [transactionDetails, setTransaction] = useState({ title: "", category: "", date: "", amount: "", description: "" });
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!transactionDetails.title || !transactionDetails.category || !transactionDetails.date || !transactionDetails.amount || !transactionDetails.description ) {
+      let emptyField = null;
+      Object.keys(transactionDetails).forEach(key => {
+        //console.log(key, obj[key]);
+        if(!transactionDetails[key]){
+          emptyField = key;
+        }
+      });
+
+      setErrorMessage(`Please fill ${emptyField} field`);
+      return;
+    } 
+    else {
+      
+      setErrorMessage('');
+    }
+
     const response = await fetch(`http://localhost:5000/transaction`,
       {
         method: "POST",
@@ -27,6 +46,7 @@ export default function AddItem() {
     else{
       alert("Transaction not creted");
     }
+    event.target.reset();
 
   }
   const onChange = (event) => {
@@ -68,7 +88,7 @@ export default function AddItem() {
             <label htmlFor="description" className="form-label">Description</label>
             <input type="text-area" className="form-control" name='description' value={transactionDetails.description} onChange={onChange} />
           </div>
-
+          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
           <button type="submit" className="m-3 btn btn-primary">Submit</button>
         </form>
       </div>
