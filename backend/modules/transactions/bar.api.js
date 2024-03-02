@@ -17,7 +17,7 @@ const getTransactionAddedAmtByCat = async(req, res)=> {
             else{
                 groupedAmounts[category]= amount;
             }
-            console.log(groupedAmounts);
+            //console.log(groupedAmounts);
         })
         const arrayFromObject = Object.entries(groupedAmounts);
         const arrayOfObjects = arrayFromObject.map(([key, value]) => ({ [key]: value }));
