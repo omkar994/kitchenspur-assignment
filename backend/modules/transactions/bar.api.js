@@ -25,7 +25,7 @@ const getTransactionAddedAmtByCat = async(req, res)=> {
         return res.send(arrayOfObjects);
     } catch (err) {
         console.error(err);
-        res.status(500).json(baseResponse(500, "Internal Server Error", { error }));
+        res.status(500).json(baseresponse(500, "Internal Server Error", { error }));
     }
 };
 
